@@ -45,8 +45,44 @@ export class PostService {
     )
   }
   
+
+  // create post
+  create(post:Post): Observable<any> {
+  
+    return this.httpClient.post(this.apiURL, JSON.stringify(post), this.httpOptions)
+  
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }  
+
+  // update post
+   find(id:number): Observable<any> {
+  
+    return this.httpClient.get(this.apiURL + '/' + id)
+  
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+    
+  /**
+   * Write code on Method
+   *
+   * @return response()
+   */
+  update(id:number, post:Post): Observable<any> {
+  
+    return this.httpClient.put(this.apiURL + '/' + id, JSON.stringify(post), this.httpOptions)
+ 
+    .pipe( 
+      catchError(this.errorHandler)
+    )
+  }
+
+  // delete
   delete(id:number){
-    return this.httpClient.delete(this.apiURL + '/posts/' + id, this.httpOptions)
+    return this.httpClient.delete(this.apiURL + '/' + id, this.httpOptions)
   
     .pipe(
       catchError(this.errorHandler)

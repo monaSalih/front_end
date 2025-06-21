@@ -8,19 +8,20 @@
               <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Body</th>
+                <th>discription</th>
                 <th width="250px">Action</th>
               </tr>
         </thead>
         <tbody>
-              <tr>
-                <td>id</td>
-                <td>title</td>
-                <!-- <td>{{ post.body }}</td> -->
+              <tr *ngFor="let post of posts">
+                <td>{{ post.post_name }}</td>
+                <td>{{ post.post_title }}</td>
+                <td>{{ post.post_description }}</td>
                 <td>
-                  <a href="#" [routerLink]="['/post/',  'view']" class="btn btn-info">View</a>
-                  <a href="#" [routerLink]="['/post/',  'edit']" class="btn btn-primary">Edit</a>
-                  <button type="button"  class="btn btn-danger">Delete</button>
+                  <!-- <a href="#" [routerLink]="['/post/', post.post_id, 'view']" class="btn btn-info">View</a>-->
+                  <a href="#" [routerLink]="['/post/', post.post_id, 'edit']" class="btn btn-primary">Edit</a> 
+                  
+                  <button type="button" (click)="deletePost(post.post_id)" class="btn btn-danger">Delete</button>
                 </td>
               </tr>
         </tbody>

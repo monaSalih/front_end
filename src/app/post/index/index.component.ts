@@ -26,5 +26,17 @@ export class IndexComponent  {
    *
    * @return response()
    */
-  
+      ngOnInit(): void {
+    this.postService.getAll().subscribe((response) => {
+      this.posts = response.data; // ✅ Fix: extract the array
+       console.log('API response:', this.posts);
+    });    
+  }
+
+  deletePost(id:number){
+    this.postService.delete(id).subscribe(res => {
+         this.posts = this.posts.filter(item => item.post_id !== id);
+         console.log('Post deleted successfully!');
+    })
+  }
 }

@@ -1,0 +1,31 @@
+
+  <ng-container *ngFor="let item of chatHistory">
+    <div
+      class="messages"
+      [ngClass]="{
+        question: item?.from === 'user',
+        answer: item?.from === 'bot'
+      }"
+    >
+      <span
+        class="responses"
+        [innerHTML]="formatText(item?.message)"
+      ></span>
+    </div>
+  </ng-container>
+
+  <footer>
+    <input
+  type="text"
+  id="message-input"
+  (keyup.enter)="sendData()"
+  placeholder="Ask Gemini"
+  [(ngModel)]="prompt"
+  [disabled]="loading"
+  autocomplete="off"
+/>
+
+<button id="send-button" (click)="sendData()" [disabled]="loading">
+  Send
+</button>
+  </footer>

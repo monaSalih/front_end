@@ -3,6 +3,7 @@ import { IndexComponent } from './post/index/index.component';
 import { ViewComponent } from './post/view/view.component';
 import { CreateComponent } from './post/create/create.component';
 import { EditComponent } from './post/edit/edit.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 
@@ -23,6 +24,9 @@ export const routes: Routes = [
  {
     path:'post/create',
     component:CreateComponent
+ },{
+    path:'chatbot',
+    component:ChatbotComponent
  },
   {
     path:'post/:postId/edit',
