@@ -16,9 +16,8 @@ export class GeminiChatService {
     });
 
     try {
-      // In this environment, directly use fetch with an empty API key.
-      // The Canvas environment will inject the actual API key at runtime.
-      const apiKey = "AIzaSyBHy7Kwya_QkODr7JAyT12qypNhaqQblos"; // Leave this as an empty string
+     
+      const apiKey = "api_key"; 
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const payload = {
