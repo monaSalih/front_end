@@ -49,7 +49,7 @@ export class PostService {
   // create post
   create(post:Post): Observable<any> {
   
-    return this.httpClient.post(this.apiURL, JSON.stringify(post), this.httpOptions)
+    return this.httpClient.post(this.apiURL, post, this.httpOptions)
   
     .pipe(
       catchError(this.errorHandler)

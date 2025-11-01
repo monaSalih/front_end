@@ -1,31 +1,30 @@
-
+<!-- Chat Container -->
+<div class="chat-container">
   <ng-container *ngFor="let item of chatHistory">
     <div
-      class="messages"
+      class="message"
       [ngClass]="{
-        question: item?.from === 'user',
-        answer: item?.from === 'bot'
+        'user-message': item?.from === 'user',
+        'bot-message': item?.from === 'bot'
       }"
     >
-      <span
-        class="responses"
-        [innerHTML]="formatText(item?.message)"
-      ></span>
+      <span class="message-text" [innerHTML]="formatText(item?.message)"></span>
     </div>
   </ng-container>
+</div>
 
-  <footer>
-    <input
-  type="text"
-  id="message-input"
-  (keyup.enter)="sendData()"
-  placeholder="Ask Gemini"
-  [(ngModel)]="prompt"
-  [disabled]="loading"
-  autocomplete="off"
-/>
-
-<button id="send-button" (click)="sendData()" [disabled]="loading">
-  Send
-</button>
-  </footer>
+<!-- Input Footer -->
+<footer class="chat-footer">
+  <input
+    type="text"
+    id="message-input"
+    (keyup.enter)="sendData()"
+    placeholder="Ask Gemini..."
+    [(ngModel)]="prompt"
+    [disabled]="loading"
+    autocomplete="off"
+  />
+  <button id="send-button" (click)="sendData()" [disabled]="loading">
+    Send
+  </button>
+</footer>

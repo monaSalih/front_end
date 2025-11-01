@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class GeminiChatService {
 
     try {
      
-      const apiKey = "api_key"; 
+      const apiKey = environment.GEMINI_API_KEY; 
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const payload = {

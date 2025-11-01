@@ -352,7 +352,7 @@ export class IndexComponent {
 
 ```html
 <div class="container">
-  <h1>Angular 19 CRUD Example - ItSolutionStuff.com</h1>
+  <h1>Blog Websit & Chatbot </h1>
 
   <a routerLink="/post/create" class="btn btn-success">Create New Post</a>
 
